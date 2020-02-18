@@ -72,3 +72,5 @@ Route::post('student/store/marks','MarksController@storeMarks')->name('marks.sto
 
 //reports generation
 Route::get('report/gen','ReportController@allStudents')->name('report.allstudents');
+Route::get('report/marksheet','ReportController@marksheet')->name('report.marksheet');
+Route::post('report/marksheet/post','ReportController@marksheetpdf')->name('report.marksheetpdf');

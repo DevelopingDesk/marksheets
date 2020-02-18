@@ -202,7 +202,7 @@
                                     <a href="{{route('report.allstudents')}}">All Students Report</a>
                                 </li>
                                  <li>
-                                    <a href="">Marksheet Report</a>
+                                    <a href="{{route('report.marksheet')}}">Marksheet Report</a>
                                 </li>
                                   @endif
 
