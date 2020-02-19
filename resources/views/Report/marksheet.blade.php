@@ -91,13 +91,16 @@
                   <div class="input-group input-icon right">
                   
                   
-                   <input type="date" name="date">
+                   <input type="date" name="date" class="form-control">
                 </div>
 
             </div>
-           <div class="col-md-6" >
-              <button class="btn-warning btn">Submit</button>
+            <div class="row">
+           <div class="move-right" >
+              <button class="btn btn-primary btn-lg btn-block">Download</button>
+            </div>   
             </div>
+           
 						</div>
 						
 		 

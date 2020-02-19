@@ -7,6 +7,7 @@ use App\Students;
 use App\SchoolClass;
 use App\Section;
 use App\Session;
+use App\TestType;
 
 
 class StudentController extends Controller
@@ -43,9 +44,12 @@ return back();
 }
 
 public function view(){
-$obj=Students::All();
-
-return view('Student.view')->withstudents($obj);
+$obj=Students::where('leave','=',null)->get();
+$schoolClass=SchoolClass::all();
+$section=Section::all();
+$testtype=TestType::Latest('created_at')->get();
+$session=Session::Latest('created_at')->get();
+return view('Student.view')->withsection($section)->withstudents($obj)->withschoolclass($schoolClass)->withsession($session)->withtest($testtype);
 
 }
 
@@ -54,6 +58,27 @@ $rec=Students::where('id',$id)->first();
 $rec->delete();
 return back();
 
+}
+public function promote(){
+
+	$obj=Students::where('id',$_POST['studentid'])->first();
+	$classname=SchoolClass::where('id',$_POST['classid'])->first();
+	$sectionname=Section::where('id',$_POST['sectionid'])->first();
+	$sessionname=Session::where('id',$_POST['sessionid'])->first();
+	$obj->session_id=$_POST['sessionid'];
+	$obj->class_id=$_POST['classid'];
+	$obj->section_id=$_POST['sectionid'];
+	$obj->update();
+$array=[$classname->name,$sectionname->name,$sessionname->name];
+	return response()->json($array);
+
+}
+public function leave(){
+
+	$obj=Students::where('id',$_POST['studentid'])->first();
+	$obj->leave=1;
+	$obj->update();
+	return response('student left your school');
 }
 
 }

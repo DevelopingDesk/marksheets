@@ -29,4 +29,10 @@ class TestRecord extends Model
 
 
     }
+     public function subject(){
+
+        return $this->belongsTo('App\Subject','subject_id');
+
+
+    }
 }

@@ -10,6 +10,7 @@ use App\Session;
 use App\Subject;
 use App\TestType;
 use App\TestRecord;
+use DB;
 class ReportController extends Controller
 {
    public function allStudents()
@@ -44,5 +45,20 @@ $data = TestRecord::distinct()->where('session_id','=',$request->session_id)->wh
         $pdf = \PDF::loadView('Report.marksheetpdf',compact('data'));
 return $pdf->download('students.pdf');
         //return view('Dashboard.dashboard');
+    }
+
+    public function resultcard($studentid){
+        $student=Students::where('id',$studentid)->first();
+       $data=TestRecord::distinct()->where('student_id','=',$studentid)->where('session_id','=',$student->session_id)->get(['subject_id','obtained','total']);
+       $obtained = TestRecord::where('student_id','=',$studentid)->where('session_id','=',$student->session_id)->sum('obtained');
+
+       $total = TestRecord::where('student_id','=',$studentid)->where('session_id','=',$student->session_id)->sum('total');
+      // dd($balance);
+$pdf = \PDF::loadView('Report.resultcard',compact('data','student','obtained','total'));
+//dd($pdf);
+return $pdf->download('resultcard.pdf');
+        
+
+
     }
 }

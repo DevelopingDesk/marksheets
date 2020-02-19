@@ -44,6 +44,9 @@ Route::get('student/create','StudentController@create')->name('student.create');
 Route::post('student/store','StudentController@store')->name('student.store');
 Route::get('student/view','StudentController@view')->name('student.view');
 Route::get('student/del{id}','StudentController@delete')->name('student.delete');
+Route::post('promote/student','StudentController@promote')->name('student.promote');
+Route::post('leave/student','StudentController@leave')->name('student.leave');
+
 //test type
 Route::get('createexam','TestController@create')->name('exam.create');
 Route::get('postiexam','TestController@store')->name('exam.store');
@@ -74,3 +77,4 @@ Route::post('student/store/marks','MarksController@storeMarks')->name('marks.sto
 Route::get('report/gen','ReportController@allStudents')->name('report.allstudents');
 Route::get('report/marksheet','ReportController@marksheet')->name('report.marksheet');
 Route::post('report/marksheet/post','ReportController@marksheetpdf')->name('report.marksheetpdf');
+Route::get('report/resultcard{id}','ReportController@resultcard')->name('report.resultcard');
