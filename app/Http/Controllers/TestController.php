@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use App\TestType;
 class TestController extends Controller
 {
-     private	$extra=null;
+    
     public function create(){
 $all=TestType::all();
 //dd($all);
-    	return view('TestType.create')->withextra($this->extra)->withtestype($all);
+    	return view('TestType.create')->withtestype($all);
     }
     public function store(Request $request){
 $section=new TestType();

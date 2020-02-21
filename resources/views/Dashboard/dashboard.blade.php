@@ -245,7 +245,53 @@
         <div id="page-wrapper">
         <div class="graphs">
           
+  @if(Auth::User()->hasrole('Admin'))
 
+    @if(Request::is('home'))
+
+    <div class="col-md-3 widget widget1">
+                <div class="r3_counter_box">
+                    <i class="pull-left fa fa-user icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>{{$admin}}</strong></h5>
+                      <span>Total Admins</span>
+                    </div>
+                </div>
+            </div>
+      <div class="col_3">
+           
+            <div class="col-md-3 widget widget1">
+                <div class="r3_counter_box">
+                    <i class="pull-left fa fa-users user1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>{{$totalstudents}}</strong></h5>
+                      <span style="color: blue">Students In School</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 widget widget1">
+                <div class="r3_counter_box">
+                    <i class="pull-left fa fa-users user2 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>{{$totalleft}}</strong></h5>
+                      <span style="color: red">Student Left School</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 widget">
+                <div class="r3_counter_box">
+                    <i class="pull-left fa fa-users dollar1 icon-rounded"></i>
+                    <div class="stats">
+                      <h5><strong>{{$totalteachers}}</strong></h5>
+                      <span style="color: lightgreen"> Total Teachers</span>
+                    </div>
+                </div>
+             </div>
+            <div class="clearfix"> </div>
+      </div>
+@endif
+
+@endif
 @yield('content')
     
 	

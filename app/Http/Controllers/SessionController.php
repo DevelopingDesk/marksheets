@@ -7,13 +7,12 @@ use App\Session;
 
 class SessionController extends Controller
 {
-    private $extra=null;
    
     public function create(){
 
 $session=Session::all();
 
-return view('Session.create')->withextra($this->extra)->withsession($session);
+return view('Session.create')->withsession($session);
 
 
 
@@ -31,7 +30,7 @@ return back()->withsession($all);
      public function viewAll(){
 $all=Session::all();
 
-return view('Session.viewsession')->withsession($all)->withextra($this->extra);
+return view('Session.viewsession')->withsession($all);
 
     }
     public function delete($id){

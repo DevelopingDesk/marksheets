@@ -7,11 +7,11 @@ use App\Subject;
 
 class SubjectController extends Controller
 {
-    private	$extra=null;
+   
     public function create(){
 $all=Subject::all();
 
-    	return view('Subject.create')->withextra($this->extra)->withsubject($all);
+    	return view('Subject.create')->withsubject($all);
     }
     public function store(Request $request){
 $class=new Subject();
@@ -28,7 +28,7 @@ return back()->withsubject($all);
     public function viewAll(){
 $all=Subject::all();
 
-return view('Subject.viewsubject')->withsubject($all)->withextra($this->extra);
+return view('Subject.viewsubject')->withsubject($all);
 
     }
 

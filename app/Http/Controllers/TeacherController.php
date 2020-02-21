@@ -10,13 +10,13 @@ use App\Role;
 use App\User;
 class TeacherController extends Controller
 {
-      private $extra=null;
+  
     public function create(){
 $role=Role::all();
 $section=Section::all();
 $schoolclass=Schoolclass::all();
 
-    	return view('Teacher.create')->withextra($this->extra)->withschoolclass($schoolclass)->withsection($section)->withrole($role);
+    	return view('Teacher.create')->withschoolclass($schoolclass)->withsection($section)->withrole($role);
     }
 
 
@@ -54,7 +54,7 @@ $student=User::where('id','!=',1)->get();
 
 //dd($student->section->name);
 
-    	return view('Teacher.viewteacher')->withextra($this->extra)->withschoolclass($schoolclass)->withsection($section)->withrole($role)->withstudent($student);
+    	return view('Teacher.viewteacher')->withschoolclass($schoolclass)->withsection($section)->withrole($role)->withstudent($student);
 
     }
 

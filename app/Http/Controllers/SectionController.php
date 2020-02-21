@@ -7,11 +7,11 @@ use App\Section;
 
 class SectionController extends Controller
 {
-     private	$extra=null;
+    
     public function create(){
 $all=Section::all();
 
-    	return view('Section.create')->withextra($this->extra)->withsection($all);
+    	return view('Section.create')->withsection($all);
     }
     public function store(Request $request){
 $section=new Section();
@@ -28,7 +28,7 @@ return back()->withsection($all);
     public function viewAll(){
 $all=Section::all();
 
-return view('Section.viewsection')->withsection($all)->withextra($this->extra);
+return view('Section.viewsection')->withsection($all);
 
     }
 
