@@ -15,7 +15,7 @@
                 
               <div class="input-group input-icon right">
                   
-                  <select name="schoolclass_id" class="form-control">
+                  <select name="schoolclass_id" id="schoolclass_id" class="form-control">
                     <option value="">Select Class</option>
                     
                     @foreach($schoolclass as $obj)
@@ -30,7 +30,7 @@
                 
               <div class="input-group input-icon right">
                   
-                  <select name="section_id" class="form-control">
+                  <select name="section_id" id="section_id" class="form-control">
                     <option value="">Select Section</option>
                     
                     @foreach($section as $obj)
@@ -45,7 +45,7 @@
                 
               <div class="input-group input-icon right">
                   
-                  <select name="session_id" class="form-control">
+                  <select name="session_id" id="session_id" class="form-control">
                     <option value="">Select Fall</option>
                     
                     @foreach($session as $obj)
@@ -60,7 +60,8 @@
                 
               <div class="input-group input-icon right">
                   
-                  <select name="subject_id" class="form-control">
+                  <select name="subject_id" id="subject_id" class="form-control">
+                    <option value="">select subject</option>
                    
                     
                     @foreach($subject as $obj)
@@ -75,8 +76,8 @@
 
                  <div class="input-group input-icon right">
                   
-                  <select name="test_id" class="form-control">
-                    <option value="">test type</option>
+                  <select name="test_id" class="form-control testtype" data-dependent="testtype" >
+                    <option>select test</option>
                     
                     @foreach($test as $obj)
                    
@@ -91,7 +92,11 @@
                   <div class="input-group input-icon right">
                   
                   
-                   <input type="date" name="date" class="form-control">
+                  <select class="form-control "  id="testtype" name="date">
+                    
+
+
+                  </select>
                 </div>
 
             </div>
@@ -113,5 +118,42 @@
 
 
 </div>
+<script type="text/javascript">
+var token='{{Session::token()}}';
+var add='{{route('report.getdate')}}';
+
+</script> 
+
+<script type="text/javascript">
+  
+  $('.testtype').change(function(){
+
+var schoolclass_id=$('#schoolclass_id').val();
+var section_id=$('#section_id').val();
+var session_id=$('#session_id').val();
+var subject_id=$('#subject_id').val();
+
+var dependent=$(this).data('dependent');
+  var select=$(this).attr("id");
+  var test_id=this.value; 
+  
+//alert(dependent);
+    $.ajax({
+method:'POST',
+url:add,
+
+data:{dependent:dependent,schoolclass_id:schoolclass_id,section_id:section_id,session_id:session_id,subject_id:subject_id,test_id:test_id,_token:token},
+success:function(data){
+$('#'+dependent).html(data); 
+
+}
+
+
+});
+
+
+//alert('hi');
+  });
+</script>
 @endsection
 

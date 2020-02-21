@@ -86,7 +86,10 @@ $testrecord->save();
 return response('successfully uploaded');
 }
 else{
-return response('you have already uploaded ');
+
+$check->obtained=$_POST['obtainedmarks'];
+$check->update();
+return response('Marks Updated ');
 
 
 }

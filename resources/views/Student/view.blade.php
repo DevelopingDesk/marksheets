@@ -94,12 +94,12 @@
 </div>
 
 
-<div style="background-color: white">
+<div style="background-color: white" class="table-responsive">
 	
 
 
 
-<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+<table id="example" class="table" cellspacing="100%" width="100%">
         <thead>
             <tr>
             	<th>id</th>
@@ -113,8 +113,9 @@
                 <th>Session</th>
                 <th>Leave</th>
                 
-                <th>Actions</th>  
-                
+                <th>Promote</th>  
+                <th>Download</th>
+                <th>Delete</th>
             </tr>
         </thead>
        
@@ -134,23 +135,30 @@
                 <td class="data">{{$cls->session->name}}</td>
                 <td>  <input type="checkbox" name="leave" class="leave"></td>
                 <td>
-              
-                	
-                <a href="{{route('student.delete',$cls->id)}}" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</a>
                  <a  class="btn btn-xs btn-primary promote"><i class="glyphicon glyphicon-ok promote"></i>Move</a>
-                 <a  href="{{route('report.resultcard',$cls->id)}}" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-download promote"></i>RCard</a>
-                
-               
-           </td>
+                 </td>
+
+                 
+                 <td>
+                 <a  href="{{route('report.resultcard',$cls->id)}}" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-download "></i>RCard</a>
+                </td>
+               <td> 
+                <a href="{{route('student.delete',$cls->id)}}" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-remove"></i> Delete</a>
+                 </td>
+         
 
                
             </tr>
            @endforeach
         </tbody>
     </table>
+
+
+ 
+</div>
 <script type="text/javascript">
-	var table=null;
-	$(document).ready(function() {
+  var table=null;
+  $(document).ready(function() {
     table=$('#example').DataTable();
 
 
@@ -174,10 +182,6 @@ var token='{{Session::token()}}';
 var leave='{{route('student.leave')}}';
 
 </script>
-
- 
-</div>
-
   
 </div>
 

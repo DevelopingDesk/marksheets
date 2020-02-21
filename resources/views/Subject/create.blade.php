@@ -13,7 +13,7 @@
       </div>
       <div class="modal-body" width="30px" >
        <textarea id="body" name="body" class="form-control" placeholder="your report must be solid"></textarea>
-          <textarea id="idclass" name="idclass" style="display: none" class="form-control" placeholder="your report must be solid"></textarea>
+          <textarea id="idclass" name="idclass" style="display: none" class="form-control" placeholder="your report must be solid" required="true"></textarea>
      
        <input type="hidden" name="_token" value="{{Session::token()}}">
 
@@ -39,7 +39,7 @@
 									<span class="input-group-addon">
 										<i class="fa fa-user"></i>
 									</span>
-									<input id="name" name="name" class="form-control1" type="text" placeholder="Subject Name">
+									<input id="name" name="name" required="true" class="form-control1" type="text" placeholder="Subject Name">
 								</div>
 							</div>
 							

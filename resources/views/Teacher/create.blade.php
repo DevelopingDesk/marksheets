@@ -32,7 +32,7 @@ input[type=password] {
 							<div class="col-md-8">
 								<div class="input-group input-icon right">
 									
-									<input id="name" name="name" class="form-control1" type="text" placeholder="teacher name">
+									<input required="true" id="name" name="name" class="form-control1" type="text" placeholder="teacher name">
 								</div>
 							</div>
 							
@@ -42,7 +42,7 @@ input[type=password] {
 							<div class="col-md-8">
 								<div class="input-group input-icon right">
 									
-									<input id="email" name="email" class="form-control1" type="text" placeholder="Email Address">
+									<input id="email" name="email" required="true" class="form-control1" type="text" placeholder="Email Address">
 								</div>
 							</div>
 							

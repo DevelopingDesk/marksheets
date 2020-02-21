@@ -31,7 +31,7 @@ input[type=password] {
 							<div class="col-md-8">
 								<div class="input-group input-icon right">
 									
-									<input id="name" name="name" class="form-control1" type="text" placeholder="student name">
+									<input id="name" required="true" name="name" class="form-control1" type="text" placeholder="student name">
 								</div>
 							</div>
 							
@@ -41,7 +41,7 @@ input[type=password] {
 							<div class="col-md-8">
 								<div class="input-group input-icon right">
 									
-									<input id="fathername" class="form-control1" name="fathername" type="text" placeholder="Father Name">
+									<input id="fathername" required="true" class="form-control1" name="fathername" type="text" placeholder="Father Name">
 								</div>
 							</div>
 							
@@ -62,7 +62,7 @@ input[type=password] {
 							<div class="col-md-8">
 								<div class="input-group input-icon right">
 									
-									<input id="phone" class="form-control1" name="phone" type="text" placeholder="student cnic">
+									<input id="phone" class="form-control1" name="phone" type="text" placeholder="student phone number">
 								</div>
 							</div>
 							
@@ -72,7 +72,7 @@ input[type=password] {
 							<div class="col-md-8">
 								<div class="input-group input-icon right">
 									
-									<input id="rollnumber" name="rollnumber" class="form-control1" type="text" placeholder="Student Rollnumber">
+									<input id="rollnumber" name="rollnumber"  required="true" class="form-control1" type="text" placeholder="Student Rollnumber">
 								</div>
 							</div>
 							
@@ -93,7 +93,7 @@ input[type=password] {
 							<div class="col-md-8">
 								<div class="input-group input-icon right">
 									
-									<input id="dob" class="form-control1" name="dob" type="date" placeholder="student dob">
+									<input id="dob" required="true" class="form-control1" name="dob" type="date" placeholder="student dob">
 								</div>
 							</div>
 							

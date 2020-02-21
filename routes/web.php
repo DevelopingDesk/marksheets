@@ -78,3 +78,4 @@ Route::get('report/gen','ReportController@allStudents')->name('report.allstudent
 Route::get('report/marksheet','ReportController@marksheet')->name('report.marksheet');
 Route::post('report/marksheet/post','ReportController@marksheetpdf')->name('report.marksheetpdf');
 Route::get('report/resultcard{id}','ReportController@resultcard')->name('report.resultcard');
+Route::post('report/getdates','ReportController@getDate')->name('report.getdate');

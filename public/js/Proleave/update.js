@@ -35,7 +35,7 @@ $(".promote").click(function (event) {
     sectionname = $(this).closest("tr").find("td:eq(7)");
 
     $('#myModal').modal();
-alert(name);
+
 $('#body').html(name);
 
 

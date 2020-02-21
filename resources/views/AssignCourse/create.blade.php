@@ -2,7 +2,7 @@
 @section('content')
 
 
-<h1 style="text-align: center;color: green">Assign Classes</h1>
+<h1 style="text-align: center;color: green">Assign Lectures To Teachers</h1>
   <div class="panel-body">
 			<form role="form" class="form-horizontal" method="POST" action="{{route('assign.store')}}">
 
@@ -12,7 +12,7 @@
 								
 							<div class="input-group input-icon right" >
                   
-                  <select name="teacher_id" class="form-control">
+                  <select name="teacher_id" class="form-control" required="true">
                     <option value="">Select Teacher</option>
                     
                     @foreach($teachers as $obj)
@@ -27,7 +27,7 @@
                 
               <div class="input-group input-icon right">
                   
-                  <select name="schoolclass_id" class="form-control">
+                  <select name="schoolclass_id" class="form-control" required="true">
                     <option value="">Select Class</option>
                     
                     @foreach($schoolclass as $obj)
@@ -42,7 +42,7 @@
                 
               <div class="input-group input-icon right">
                   
-                  <select name="section_id" class="form-control">
+                  <select name="section_id" class="form-control" required="true">
                     <option value="">Select Section</option>
                     
                     @foreach($section as $obj)
@@ -57,7 +57,7 @@
                 
               <div class="input-group input-icon right">
                   
-                  <select name="session_id" class="form-control">
+                  <select name="session_id" class="form-control" required="true">
                     <option value="">Select Fall</option>
                     
                     @foreach($session as $obj)
@@ -72,7 +72,7 @@
                 
               <div class="input-group input-icon right">
                   
-                  <select name="subject_id" class="form-control">
+                  <select name="subject_id" class="form-control" required="true">
                     <option value="">Select Subject</option>
                     
                     @foreach($subject as $obj)
@@ -93,7 +93,7 @@
 					</form>		
 	</div>
 	
-	<div style="background-color: white">
+
 		
 	
 <div style="background-color: white">

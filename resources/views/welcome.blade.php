@@ -1,99 +1,96 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html lang="zxx">
 
-        <title>Laravel</title>
+<head>
+    <title>welcome to portal</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="school system"
+    />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="{{asset('front/css/style.css')}}" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link rel="stylesheet" href="{{asset('front/css/font-awesome.css')}}">
+    <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+    <!-- web-fonts -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- //web-fonts -->
+</head>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+<body>
+    <div class="video-w3l" data-vide-bg="{{asset('front/video/1')}}">
+        <!--header-->
+        <div class="header-w3l">
+            <h1>
+                <span>S</span>chool
+                <span>S</span>ystem
+                <span>S</span>oftware
+                
+            </h1>
+        </div>
+        <!--//header-->
+        <div class="main-content-agile">
+            <div class="sub-main-w3">
+                <h2>Login Here
+                    <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                </h2>
+                <form action="{{ route('login') }}" method="post">
+                       {{csrf_field()}}
+                    <div class="pom-agile">
+                        <span class="fa fa-user-o" aria-hidden="true"></span>
+                        <input placeholder="email  " name="email" class="user" type="text" required="">
+                    </div>
+                    <div class="pom-agile">
+                        <span class="fa fa-key" aria-hidden="true"></span>
+                        <input placeholder="Password" name="password" class="pass" type="password" required="">
+                    </div>
+                    <div class="sub-w3l">
+                        <div class="sub-agile">
+                            <input type="checkbox" id="brand1" value="">
+                            <label for="brand1">
+                                <span></span>Remember me</label>
+                        </div>
+                        
+                        <div class="clear"></div>
+                    </div>
+                    <div class="right-w3l">
+                        <input type="submit" value="Login">
+                    </div>
+                </form>
             </div>
         </div>
-    </body>
+        <!--//main-->
+        <!--footer-->
+        <div class="footer">
+            <p>2020 | Design by
+                <a href="">Developing Desk 03466030340</a>
+            </p>
+        </div>
+        <!--//footer-->
+    </div>
+
+    <!-- js -->
+    <script src="{{asset('front/js/jquery-2.1.4.min.js')}}"></script>
+    <script src="{{asset('front/js/jquery.vide.min.js')}}"></script>
+    <!-- //js -->
+
+</body>
+
 </html>

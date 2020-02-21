@@ -39,7 +39,7 @@
 									<span class="input-group-addon">
 										<i class="fa fa-user"></i>
 									</span>
-									<input id="name" name="name" class="form-control1" type="text" placeholder="exam name">
+									<input id="name" required="true" name="name" class="form-control1" type="text" placeholder="exam name">
 								</div>
 							</div>
 							

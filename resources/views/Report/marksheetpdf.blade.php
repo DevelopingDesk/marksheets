@@ -56,14 +56,18 @@ table.greenTable tfoot .links a{
   border-radius: 5px;
 }
 </style>
-<center><h2 style="color: blue">Marksheet Report</h2></center>
-<br>
+<hr><hr>
+
+<center><h2 style="color: blue">Marksheet Report of Students</h2></center>
+
+<hr><hr>
 
 <table class="greenTable">
 <thead>
 <tr>
 <th>Student Name</th>
 <th>Father Name</th>
+<th>Subject Name</th>
 
 <th>Roll Number</th>
 
@@ -82,6 +86,7 @@ table.greenTable tfoot .links a{
 <tr>
 <td>{{$dat->student->name}}</td>
 <td>{{$dat->student->fatherName}}</td>
+<td>{{$dat->subject->name}}</td>
 <td>{{$dat->student->rollnumber}}</td>
 <td>{{$dat->schoolClass->name}}</td>
 <td>{{$dat->section->name}}</td>

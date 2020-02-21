@@ -7,7 +7,8 @@ var testtype=null;
 
 
 $('select').on('change', function() {
-  testtype=this.value
+  testtype=this.value;
+  //alert(testtype);
 });
 
 
