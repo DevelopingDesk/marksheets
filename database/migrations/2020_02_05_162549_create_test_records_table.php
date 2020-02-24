@@ -18,6 +18,8 @@ class CreateTestRecordsTable extends Migration
             $table->string('obtained');
             $table->string('total');
             $table->string('date');
+            $table->integer('test_id')->unsigned();
+
 
              $table->integer('subject_id')->unsigned();
 
@@ -26,6 +28,9 @@ class CreateTestRecordsTable extends Migration
              $table->integer('teacher_id')->unsigned();
             $table->integer('section_id')->unsigned();
             $table->integer('session_id')->unsigned();
+
+              $table->foreign('test_id')->references('id')->on('test_types')
+                ->onUpdate('cascade')->onDelete('cascade');
 
               $table->foreign('subject_id')->references('id')->on('subjects')
                 ->onUpdate('cascade')->onDelete('cascade');

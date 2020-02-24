@@ -4,11 +4,11 @@
 <style> 
 input[type=number] {
    
-    padding: 12px 20px;
-    margin: 4px 0;
+    padding: 3px 0px;
+    
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid lightblue;
+    border: 2px solid lightblue;
     
 }
 </style>
@@ -28,8 +28,8 @@ input[type=number] {
   </div>
   <input type="hidden" id="subjectid" name="subjectid" value="{{$subjectid}}">
   <div class="col-md-4" style="border:2px solid lightblue;border-radius: 15px">
-   <select class="form-control testtype">
-    
+   <select class="form-control testtype" id="test_type" name="test_type">
+    <option>Select Exam Type</option>
 
      @foreach($exams as $exa)
 
@@ -68,7 +68,7 @@ input[type=number] {
                 <td>{{$students->schoolClass->name}} <input type="hidden" name="classid" value="{{$students->schoolClass->id}}"></td>
                 <td>{{$students->session->name}} <input type="hidden" name="sessionid[]" value="{{$students->session->id}}"></td>
                
-               <td  ><input class="obtainedmarks" type="text"   placeholder="Enter marks here"></td>
+               <td  ><input class="obtainedmarks" type="number"   placeholder="Enter marks here"></td>
                 <td><button class="btn-primary btnSelect">Select</button></td>
 
             

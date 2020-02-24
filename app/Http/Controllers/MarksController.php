@@ -15,10 +15,10 @@ use App\TestRecord;
 use auth;
 class MarksController extends Controller
 {
-    private $extra=null;
+  
     public function getSession(){
 $all=Session::Latest('created_at')->get();
-return view('ManageMarks.getsession')->withsession($all)->withextra($this->extra);
+return view('ManageMarks.getsession')->withsession($all);
 
     }
     public function getEnroledClasses(Request $request){
@@ -26,7 +26,7 @@ $sessionid=$request->sessionid;
 $user=Auth::User();
 $getclasses=CourseOfTeacher::distinct()->select('class_id')->where('teacher_id','=',$user->id)
 ->where('session_id',$sessionid)->get();
-return view('ManageMarks.enrolledclasses')->withclasses($getclasses)->withsessionid($sessionid)->withextra($this->extra);
+return view('ManageMarks.enrolledclasses')->withclasses($getclasses)->withsessionid($sessionid);
 
 
 
@@ -53,21 +53,27 @@ $allstudents=Students::distinct()
 ->where('section_id','=',$sectionid)
 ->get();
 //dd($allstudents);
-return view('ManageMarks.allstudents')->withallstudents($allstudents)->withextra($this->extra)->withexams($exams)->withsubjectid($subjectid);
+return view('ManageMarks.allstudents')->withallstudents($allstudents)->withexams($exams)->withsubjectid($subjectid);
 ;
     }
 
 public function storeMarks(Request $request){
-$studentid=$_POST['studentid'];
-$check=TestRecord::where('student_id','=',$studentid)->where('date','=',$_POST['date'])->where('subject_id','=',$_POST['subjectid'])->first();
-	if(($_POST['date']==null)||($_POST['totalmarks']==null)||($_POST['obtainedmarks']==null))
+
+
+if($_POST['obtainedmarks']>$_POST['totalmarks'])
+{
+    return response('obtained marks should be less than total');
+}
+	
+    else if(($_POST['date']==null)||($_POST['totalmarks']==null)||($_POST['obtainedmarks']==null)||($_POST['test_id']==null))
 
 	{
 return response('Fill all fields');
 
 	}
-	
-	else if($check==null)
+$studentid=$_POST['studentid'];
+$check=TestRecord::where('student_id','=',$studentid)->where('date','=',$_POST['date'])->where('subject_id','=',$_POST['subjectid'])->first();	
+ if($check==null)
 {
 	$testrecord=new TestRecord();
 	$user=Auth::User();
@@ -76,6 +82,7 @@ $testrecord->obtained=$_POST['obtainedmarks'];
 $testrecord->total=$_POST['totalmarks'];
 $testrecord->date=$_POST['date'];
 $testrecord->subject_id=$_POST['subjectid'];
+$testrecord->test_id=$_POST['test_id'];
 $testrecord->class_id=$obj->class_id;
 $testrecord->student_id=$_POST['studentid'];
 $testrecord->teacher_id=$user->id;

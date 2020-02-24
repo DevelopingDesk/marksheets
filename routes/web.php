@@ -79,3 +79,6 @@ Route::get('report/marksheet','ReportController@marksheet')->name('report.marksh
 Route::post('report/marksheet/post','ReportController@marksheetpdf')->name('report.marksheetpdf');
 Route::get('report/resultcard{id}','ReportController@resultcard')->name('report.resultcard');
 Route::post('report/getdates','ReportController@getDate')->name('report.getdate');
+Route::post('report/positions','ReportController@positionsPdf')->name('report.positionspdf');
+Route::get('report/positions','ReportController@getPositions')->name('report.getpositions');
+

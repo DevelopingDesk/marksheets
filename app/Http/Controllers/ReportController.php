@@ -13,11 +13,43 @@ use App\TestRecord;
 use DB;
 class ReportController extends Controller
 {
+
+
+  //dd(1);
+  public function getPositions(){
+    $schoolclass=SchoolClass::all();
+    $TestType=TestType::all();
+    $session=Session::all();
+    return view('Report.positions')->withsession($session)->withtestype($TestType)->withschoolclass($schoolclass);
+  }
+
+      public function positionsPdf(Request $request){
+
+$student=Students::all();
+$data=TestRecord::where('session_id','=',$request->session_id)->where('class_id','=',$request->schoolclass_id)->selectRaw('sum(obtained) as obtained,sum(total) as total,student_id')->groupBy('student_id')->get();
+//dd($data->schoolClass->name);
+/*
+$data = DB::table('test_records')
+                ->select('student_id', DB::raw('SUM(obtained) as obtained,SUM(total) as total'))->where('class_id','=',$request->schoolclass_id)->where('session_id','=',$request->session_id)
+                ->where('test_id','=',$request->test_id)
+                ->groupBy('student_id')
+                
+                ->get();
+  */
+
+              //  dd($data);
+$pdf = \PDF::loadView('Report.positionspdf',compact('data','student'));
+return $pdf->stream('results.pdf');//its just a name of files which is downloaded
+
+
+      }
    public function allStudents()
     {
-    	//dd(1);
+    	
 $data=Students::all();
 
+
+  
     	$pdf = \PDF::loadView('Report.pdf',compact('data'));
 return $pdf->stream('students.pdf');
         //return view('Dashboard.dashboard');

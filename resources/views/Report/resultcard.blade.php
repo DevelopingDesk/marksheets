@@ -66,9 +66,9 @@ th {
     <th style="width:30%">Remarks</th>
   </tr>
  
- 
+ @foreach($data as $da)
   <tr>
-  	@foreach($data as $da)
+  	
     <td>{{$da->subject->name}}</td>
     <td class="choose"> {{$da->obtained}}</td><td class="total">{{$da->total}}</td>
     <td>pass</td>

@@ -204,6 +204,9 @@
                                  <li>
                                     <a href="{{route('report.marksheet')}}">Marksheet Report</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('report.getpositions')}}">Position Marksheet</a>
+                                </li>
                                   @endif
 
 
